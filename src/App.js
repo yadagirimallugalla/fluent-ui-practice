@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useEffect, useState } from "react";
+import { initializeIcons } from "@fluentui/react";
+import "./App.css";
+import ProductsPage from "./components/ProductsPage";
+import LoginSignupPage from "./components/LoginSignupPage";
+import { Routes, Route } from "react-router-dom";
 
+initializeIcons();
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Routes>
+        <Route exact path="/" element={<ProductsPage />} />
+        <Route path="/:category" element={<ProductsPage />} />
+        <Route path="/loginsignup" element={<LoginSignupPage />} />
+      </Routes>
     </div>
   );
 }
